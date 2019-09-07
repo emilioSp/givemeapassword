@@ -1,6 +1,6 @@
 const Router = require('koa-router');
 const router = new Router();
-const PasswordGenerator = require('./PasswordGenerator');
+const Password = require('../Password');
 const fs = require('fs');
 const util = require('util');
 const readFile = util.promisify(fs.readFile);
@@ -16,11 +16,11 @@ const fail = (ctx, e) => {
 
 router.get('/', async ctx => {
   try {
-    const indexPage = await readFile('./index.html');
+    const indexPage = await readFile(`${__dirname}/../templates/index.html`);
     const template = Handlebars.compile(indexPage.toString('utf8'));
-    const passwordGenerator = new PasswordGenerator(8);
+    const password = new Password(process.env.PASSDIGITS);
     ctx.type = 'html';
-    ctx.body = template({ password: passwordGenerator.getPassword() });
+    ctx.body = template({ password: password.generate() });
   } catch (e) {
     fail(ctx, e);
   }

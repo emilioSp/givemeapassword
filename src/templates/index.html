@@ -38,16 +38,19 @@
             justify-content: center;
             border-radius: 24px;
             height: 44px;
-            width: 55vw;
+            width: 250px;
             box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
             border-color: rgba(223,225,229,0);
             margin: 10px auto 20px auto;
         }
 
+        div.password-container > div {
+            flex: 0.3 auto;
+        }
+
         input.password {
             outline: none;
             border: none;
-            width: 100%;
             text-align: center;
             font-size: 1.10em;
         }
@@ -68,6 +71,15 @@
             font-size: 4em;
         }
 
+        i.fa-copy {
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        i.fa-clipboard-check {
+            font-size: 1.5em;
+        }
+
         div.gift-container-message {
             margin: 20px auto 10px auto
         }
@@ -82,6 +94,17 @@
         }
 
     </style>
+
+    <script>
+        function copy() {
+          navigator.clipboard.writeText(`${document.getElementById('password').value}`).then(function() {
+            document.getElementById('result-copy-ok').style='display: inline-block';
+            document.getElementById('copy').style='display: none';
+          }, function() {
+            alert('failed');
+          });
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -91,8 +114,10 @@
                 <div><h1>Here is your password!</h1></div>
                 <div class="password-container">
                     <div class="password">
-                        <input class="password" type="text" value="{{password}}">
+                        <input id="password" class="password" type="text" value="{{password}}">
                     </div>
+                    <div id="copy" onclick="copy()"><i class="fas fa-copy"></i></div>
+                    <div id="result-copy-ok" style="display: none"><i class="fas fa-clipboard-check"></i></div>
                 </div>
             </div>
             <div class="gift-container-sub-message">
