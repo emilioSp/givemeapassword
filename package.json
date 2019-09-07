@@ -1,0 +1,23 @@
+{
+  "name": "givemeapassword",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "espatola <emilio.spatola@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --harmony server.js",
+    "prod": "forever -c \"node --harmony\" server.js"
+  },
+  "dependencies": {
+    "forever": "^1.0.0",
+    "handlebars": "^4.2.0",
+    "koa": "^2.8.1",
+    "koa-remove-trailing-slashes": "^2.0.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "pm2": "^3.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
