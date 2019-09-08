@@ -5,8 +5,8 @@
   "author": "espatola <emilio.spatola@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "PORT=3000 nodemon --harmony src/server.js",
-    "prod": "PORT=80 node --harmony src/server.js"
+    "dev": "PASSDIGITS=16 PORT=80 nodemon --harmony src/server.js",
+    "prod": "PASSDIGITS=16 PORT=80 node --harmony src/server.js"
   },
   "dependencies": {
     "handlebars": "^4.2.0",

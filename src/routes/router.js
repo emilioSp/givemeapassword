@@ -18,7 +18,7 @@ router.get('/', async ctx => {
   try {
     const indexPage = await readFile(`${__dirname}/../templates/index.html`);
     const template = Handlebars.compile(indexPage.toString('utf8'));
-    const password = new Password(8);
+    const password = new Password(process.env.PASSDIGITS);
     ctx.type = 'html';
     ctx.body = template({ password: password.generate() });
   } catch (e) {
