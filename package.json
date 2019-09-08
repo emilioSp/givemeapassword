@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "PORT=3000 nodemon --harmony src/server.js",
-    "prod": "node src/server.js"
+    "prod": "PORT=80 node --harmony src/server.js"
   },
   "dependencies": {
     "handlebars": "^4.2.0",
