@@ -9,7 +9,7 @@
     "prod": "PASSDIGITS=16 PORT=3000 node --harmony src/server.js"
   },
   "dependencies": {
-    "handlebars": "^4.2.0",
+    "handlebars": "^4.3.0",
     "koa": "^2.8.1",
     "koa-helmet": "^5.1.0",
     "koa-remove-trailing-slashes": "^2.0.0",
