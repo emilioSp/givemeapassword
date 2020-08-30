@@ -1,5 +1,5 @@
 # minimal debian
-FROM alpine:latest
+FROM alpine:3.12
 
 # install essential packages
 RUN apk add --no-cache --update bash vim nodejs yarn
