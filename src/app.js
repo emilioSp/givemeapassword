@@ -7,7 +7,7 @@ const router = require('./routes/router');
 const app = new Koa();
 app.use(helmet());
 app.use(removeTrailingSlashes());
-app.use(serve('public/'));
+app.use(serve('src/public'));
 app.use(router.routes());
 app.use(router.allowedMethods());
 
