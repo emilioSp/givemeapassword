@@ -1,23 +1,13 @@
 {
   "name": "givemeapassword",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "src/server.js",
   "author": "espatola <emilio.spatola@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "PASSDIGITS=16 PORT=3000 nodemon --harmony src/server.js",
-    "prod": "PASSDIGITS=16 PORT=3000 node --harmony src/server.js"
-  },
-  "dependencies": {
-    "handlebars": "^4.7.6",
-    "koa": "^2.13.0",
-    "koa-compress": "^5.0.1",
-    "koa-helmet": "^5.2.0",
-    "koa-remove-trailing-slashes": "^2.0.0",
-    "koa-router": "^9.4.0",
-    "koa-static": "^5.0.0"
+    "deploy": "gh-pages -d public"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "gh-pages": "^3.1.0"
   }
 }

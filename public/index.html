@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@300">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="grid-container">
@@ -22,7 +21,7 @@
         <div><h1>Here is your password!</h1></div>
         <div class="password-container">
             <div class="password">
-                <input id="password" class="password" type="text" value="{{password}}">
+                <input id="password" class="password" type="text">
             </div>
             <div id="copy" onclick="copy()"><i class="fas fa-copy"></i></div>
             <div id="result-copy-ok" style="display: none"><i class="fas fa-clipboard-check"></i></div>
@@ -33,4 +32,29 @@
         <div><h3>We do not store or share this password across the Internet</h3></div>
     </div>
 </body>
+<script>
+
+  const copy = () => {
+    navigator.clipboard.writeText(`${document.getElementById('password').value}`).then(function() {
+      document.getElementById('result-copy-ok').style='display: inline-block';
+      document.getElementById('copy').style='display: none';
+    }, function() {
+      alert('failed');
+    });
+  }
+
+  const alphabet = "abcdefghijklmanopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789{}()/$&!|?@_-";
+  const digit = 16;
+
+  const getPassword = () => {
+    let password = '';
+    const size = alphabet.length;
+    for (let i = 0; i < digit; i++) {
+      const randomIndex = (Math.random() * (size - 1)).toFixed(); // random integer between 0 and size - 1
+      password += alphabet[randomIndex];
+    }
+    return password;
+  }
+  document.getElementById('password').value = getPassword();
+</script>
 </html>
